@@ -1,30 +1,45 @@
-## Gerar o arquivo .APK do projeto Flutter
+## Passo a apasso para gerar o arquivo .APK do projeto Flutter 🚀
 
-`Obs: A cada atualização alterar a tag;`
+`Obs: A cada atualização alterar a tag.`
 
-l. Fazer o commit das alterações;
+### 1. Fazer o commit das alterações
+Realizar o commit de acordo com o que foi modificado.
 
-l. Verificar tags (git tag) e criar uma nova a partir da ultima;
+### 2. Verificar tags
+Verificar as tags para idenficar a última criada e incrementar para a criação de uma nova. Deve-se utilizar:
+```bash
+  git tag
+```
 
-l. Criar a tag: git tag {nome da tag};
+### 3. Criar a tag: git tag {nome da tag};
+A partir da ultima tag feita, criar uma nova (icrementando o ultimo numero). Deve-se utilizar
+```bash
+  git tag {numeracao_da_tag_incrementada}
+```
 
-l. Subir a tag: git push origin {nome_da_tag};
-Obs: antes de ir para o próximo passo, caso tenham alterações em
-outros repos (core, desing system, etc), é necessário que os PRs
-ja tenha sido mergeados;
+### 4. Subir a tag
+Deve-se utilizar:
+```bash
+  git push origin {tag_criada}
+```
+>Obs: antes de ir para o próximo passo, caso tenham alterações em outros repos (core, desing system, etc), é necessário que os PRs ja tenha sido mergeados.
 
-l. Ir para o repositório do ana_base. No pubspec, alterar
-a versão do app, alterar a versão ref do ana_admissao
-para a tag criada;
+### 5. Ir para o repositório do ana_base
+No pubspec, alterar a versão do app, alterar a versão ref do ana_admissao para a tag criada.
 
-l. Deletar o pubspec.lock do ana base e rodar: flutter pug get;
+### 6. Deletar o arquivo pubspec.lock do ana base
+Após deletar, é necessário atualizar os pacotes. Deve-se utilizar:
+```
+  flutter pub get
+```
 
-l. Ainda no ana base, subir o commit com as alterações no pubspec e
-fazer o push diretamente na branch em development (NÃO SUBIR OVERRIDE);
+### 7. Subir o commit e analisar se não tem pacotes em override
+Ainda no ana base, deve-se subir o commit com as alterações no pubspec e fazer o push diretamente na branch em development (NÃO SUBIR OVERRIDE);
 
-l. Ir no github do repo da ana_base e em actions. Estarão sendo feitos
-os builds do app para android, web e ios. Escolher o build do android,
-abrir o build e procurar por "Upload to S3". Encontrar a linha do link
-copiar, ajustar o link com "https://" e trocar os + por "%2B";
+### 8. Ir no github do repo da ana_base para verificar o build
+Na aba "actions" do repositório do ana_base estarão sendo feitos os builds do app para android, web e ios. Deve-se escolher o build do android, abrir e procurar por "Upload to S3".
+Encontrar a linha que contenha o link e copiar
+>Obs: deve-se ajustar o link (adicionar o "https://" no lugar do "s3", adicionar o csdn e trocar os + por "%2B"). Deve ficar da seguinte forma: https://nasajon-cdn.s3.sa-east-1.amazonaws.com/github%2Bfastlane/dev/android/v0.0.0-000/app-dev-release.apk
 
-l. Com o link, é só baixar o APK.
+### 9. Baixar o APK.
+Com o link ajustado e copiado, acessa-lo e baixar o APK.
