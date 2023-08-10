@@ -1,6 +1,6 @@
 ## Passo a apasso para gerar o arquivo .APK do projeto Flutter 🚀
 
-`Obs: A cada atualização alterar a tag.`
+>Obs: A cada atualização alterar a tag.
 
 ### 1. Fazer o commit das alterações
 Realizar o commit de acordo com o que foi modificado.
